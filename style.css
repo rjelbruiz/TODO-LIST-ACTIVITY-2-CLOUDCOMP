@@ -1,92 +1,257 @@
+/* GLOBAL STYLES */
 body {
-    /* A chaotic meme-themed background */
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                url('https://i.imgflip.com/4/39t1o.jpg'); /* The "This is Fine" dog */
-    background-size: cover;
-    background-attachment: fixed;
+    /* Replaced Leonardo background with a high-energy solid color */
+    background-color: #6200ea; 
     margin: 0;
-    /* The official font of memes */
+    padding: 0;
     font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
     
     display: flex;
     justify-content: center; 
     align-items: center;
     min-height: 100vh; 
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
+/* --- LOGIN PAGE STYLES --- */
+.login-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background: #00ffff; /* Neon Cyan */
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid #000;
+    box-shadow: 15px 15px 0px #ff00ff; /* Chunky Magenta shadow */
+    width: 320px;
+    text-align: center;
+    transform: rotate(-2deg);
+}
+
+.login-box h2 { 
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px white;
+    font-size: 26px;
+    margin-top: 0;
+}
+
+/* --- BOARD (TODO) STYLES --- */
 .board {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
-    padding: 20px;
+    gap: 25px;
+    padding: 40px;
+    /* Allows board to grow horizontally if you add more columns */
+    overflow-x: auto; 
 }
 
 .column {
-    background-color: rgba(235, 237, 240, 0.9); /* Semi-transparent */
+    background-color: rgba(255, 255, 255, 0.95);
     width: 280px;
     flex-shrink: 0;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    max-height: 80vh;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.2); /* Chunky "meme" shadow */
-    border: 3px solid #000;
+    max-height: 85vh;
+    box-shadow: 10px 10px 0px #000;
+    border: 4px solid #000;
 }
 
-/* Let's tilt the columns slightly for a "chaotic" look */
-.column:nth-child(odd) { transform: rotate(-1deg); }
-.column:nth-child(even) { transform: rotate(1deg); }
+/* The Chaotic Tilt */
+.column:nth-child(odd) { transform: rotate(-1.5deg); }
+.column:nth-child(even) { transform: rotate(1.5deg); }
 
 .column-header {
     font-weight: 900;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     color: #000;
-    font-size: 20px;
+    font-size: 24px;
     text-transform: uppercase;
     text-align: center;
+    border-bottom: 4px dashed #000;
+    margin-bottom: 15px;
 }
 
+/* TASK CARDS */
 .task-card {
     background-color: #fff;
-    border: 2px solid #000;
+    border: 3px solid #000;
     border-radius: 10px;
     margin-bottom: 12px;
     padding: 15px;
-    cursor: pointer;
+    cursor: grab;
     font-weight: bold;
     transition: 0.2s;
 }
 
 .task-card:hover {
-    background-color: #ffff00; /* Bright meme yellow */
-    transform: scale(1.05) rotate(2deg);
+    background-color: #ffff00; /* Meme Yellow */
+    transform: scale(1.05) rotate(3deg);
 }
 
-/* Customizing the "Add" button to look like a meme button */
+/* INPUTS & BUTTONS */
+input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 3px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: "Comic Sans MS", cursive;
+    font-weight: bold;
+}
+
 button {
     background-color: #ff4500; /* Reddit Orange */
     color: white;
     border: 3px solid #000;
-    padding: 10px;
+    padding: 12px;
     border-radius: 10px;
     font-weight: 900;
     cursor: pointer;
     text-transform: uppercase;
-    transition: 0.1s;
+    box-shadow: 4px 4px 0px #000;
+    width: 100%;
 }
 
 button:active {
-    transform: translateY(4px);
+    transform: translate(3px, 3px);
     box-shadow: none;
 }
 
+/* UTILITY */
+.hidden {
+    display: none !important;
+}/* GLOBAL STYLES */
+body {
+    /* Replaced Leonardo background with a high-energy solid color */
+    background-color: #6200ea; 
+    margin: 0;
+    padding: 0;
+    font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+    
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh; 
+    overflow-x: hidden;
+}
+
+/* --- LOGIN PAGE STYLES --- */
+.login-overlay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.login-box {
+    background: #00ffff; /* Neon Cyan */
+    padding: 40px;
+    border-radius: 20px;
+    border: 5px solid #000;
+    box-shadow: 15px 15px 0px #ff00ff; /* Chunky Magenta shadow */
+    width: 320px;
+    text-align: center;
+    transform: rotate(-2deg);
+}
+
+.login-box h2 { 
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px white;
+    font-size: 26px;
+    margin-top: 0;
+}
+
+/* --- BOARD (TODO) STYLES --- */
+.board {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 40px;
+    /* Allows board to grow horizontally if you add more columns */
+    overflow-x: auto; 
+}
+
+.column {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 280px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 85vh;
+    box-shadow: 10px 10px 0px #000;
+    border: 4px solid #000;
+}
+
+/* The Chaotic Tilt */
+.column:nth-child(odd) { transform: rotate(-1.5deg); }
+.column:nth-child(even) { transform: rotate(1.5deg); }
+
+.column-header {
+    font-weight: 900;
+    padding-bottom: 12px;
+    color: #000;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 4px dashed #000;
+    margin-bottom: 15px;
+}
+
+/* TASK CARDS */
+.task-card {
+    background-color: #fff;
+    border: 3px solid #000;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    padding: 15px;
+    cursor: grab;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.task-card:hover {
+    background-color: #ffff00; /* Meme Yellow */
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* INPUTS & BUTTONS */
 input {
     width: 100%;
     box-sizing: border-box;
-    border: 2px solid #000;
+    border: 3px solid #000;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 10px;
+    font-family: "Comic Sans MS", cursive;
+    font-weight: bold;
+}
+
+button {
+    background-color: #ff4500; /* Reddit Orange */
+    color: white;
+    border: 3px solid #000;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0px #000;
+    width: 100%;
+}
+
+button:active {
+    transform: translate(3px, 3px);
+    box-shadow: none;
+}
+
+/* UTILITY */
+.hidden {
+    display: none !important;
 }
